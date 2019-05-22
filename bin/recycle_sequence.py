@@ -8,10 +8,12 @@ def recycle_sequence(n):
         j = f[0]
         f[0] = 1
         ib = 1 if a[j-1] <= 1 else 0
-        yield(n - (j + ib % 2))
+        yield(n - ((j + ib) % 2))
         a[j-1] += 1
-        f[j-1] = f[j]
-        f[j] = j + 1
+        if a[j-1] == n - j:
+            a[j-1] = 0
+            f[j-1] = f[j]
+            f[j] = j + 1
     yield(n - (n % 2))
     f[0] = 1
 
@@ -29,11 +31,13 @@ def recycle_sequence_reuse(n):
         j = f[0]
         f[0] = 1
         ib = 1 if a[j-1] <= 1 else 0
-        for v in reuse(n + 1, n - (j + ib % 2)):
+        for v in reuse(n + 1, n - ((j + ib) % 2)):
             yield v
         a[j-1] += 1
-        f[j-1] = f[j]
-        f[j] = j + 1
+        if a[j-1] == n - j:
+            a[j-1] = 0
+            f[j-1] = f[j]
+            f[j] = j + 1
     for v in reuse(n + 1, n - (n % 2)):
         yield v
     f[0] = 1
