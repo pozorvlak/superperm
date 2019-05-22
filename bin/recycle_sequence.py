@@ -63,14 +63,14 @@ def rotate(perm, i):
     return perm[1:i] + [perm[0]] + perm[i:]
 
 
+def list_to_str(perm):
+    return "".join(str(p) for p in perm)
+
+
 n = int(sys.argv[1])
 a = [0 for i in range(n)]
 f = list(range(1, n+1))
-rsr = list(recycle_sequence(n))
-p = list(range(1, n+1))
-print(" ", p)
-for r in rsr:
-    p = rotate(p, r)
-    print(r, p)
-print(len(rsr))
-
+perm = list(range(1, n+1))
+for r in recycle_sequence(n):
+    print(list_to_str(perm))
+    perm = rotate(perm, r)
