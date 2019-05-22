@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 import sys
 
+# Implementation of the algorithms from the paper "Hamilton Cycles in
+# Restricted and Incomplete Rotator Graphs" by Brett Stevens and Aaron
+# Williams,
+# https://www.researchgate.net/profile/Aaron_Williams10/publication/265584435_Hamilton_Cycles_in_Restricted_and_Incomplete_Rotator_Graphs/links/56d3c2cf08ae85c8234c762b/Hamilton-Cycles-in-Restricted-and-Incomplete-Rotator-Graphs.pdf?origin=publication_detail
+
 
 def recycle_sequence(n):
     global a, f
