@@ -62,13 +62,11 @@ def rotate(perm, i):
 n = int(sys.argv[1])
 a = [0 for i in range(n)]
 f = list(range(1, n+1))
-for i in range(n):
-    rsr = list(rewind(n, i, recycle_sequence_reuse))
-    print(rsr)
-    print(len(rsr))
-    p = list(range(1, n+1))
-    print(p)
-    for r in rsr:
-        p = rotate(p, r)
-        print(p)
+rsr = list(recycle_sequence(n))
+p = list(range(1, n+1))
+print(" ", p)
+for r in rsr:
+    p = rotate(p, r)
+    print(r, p)
+print(len(rsr))
 
