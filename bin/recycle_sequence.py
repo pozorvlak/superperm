@@ -54,6 +54,8 @@ def rewind(n, m, seq):
 
 
 def rotate(perm, i):
+    if i == 0:
+        return perm
     return perm[1:i] + [perm[0]] + perm[i:]
 
 
